@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { Breakpoints } from '../../styles/variaveis'
 
 const StyledMain = styled.main`
   background-color: white;
@@ -12,5 +13,16 @@ const StyledMain = styled.main`
 
   width: min-content;
   margin: auto;
+
+  @media (max-width: ${Breakpoints.desktop}) {
+    width: 90%;
+  }
+
+  @media (max-width: ${Breakpoints.tablet}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `
 export default StyledMain

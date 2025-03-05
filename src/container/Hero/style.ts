@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { Breakpoints } from '../../styles/variaveis'
 
 const StyledHero = styled.div`
   height: 280px;
@@ -10,6 +11,13 @@ const StyledHero = styled.div`
   background-size: cover;
   background-position: center;
   background-blend-mode: color;
+
+  @media (max-width: ${Breakpoints.desktop}) {
+  }
+
+  @media (max-width: ${Breakpoints.tablet}) {
+    padding-left: 8px;
+  }
 
   & > div {
     height: 100%;

@@ -4,7 +4,6 @@ import { removeItem } from '../../store/reducers/cart'
 import StyledCartCard from './style'
 
 import lixeira from '../../assets/images/lixeira_icon.png'
-import { MenuItemProps } from '../../utilities/types'
 import { formataPreco } from '../../utilities/helper'
 
 function CartCard(props: MenuItemProps) {

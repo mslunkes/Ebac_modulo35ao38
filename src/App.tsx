@@ -9,7 +9,7 @@ import Restaurants from './pages/Restaurants'
 import Footer from './container/Footer'
 
 import EstiloGlobal from './styles'
-import Cart from './container/Cart'
+import SideBar from './container/SideBar'
 
 const Rotas = () => (
   <Routes>
@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
         <EstiloGlobal />
         <Rotas />
-        <Cart />
+        <SideBar />
         <Footer />
       </BrowserRouter>
     </Provider>
