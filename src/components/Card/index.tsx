@@ -2,7 +2,6 @@ import StyledCard, { CardImg } from './style'
 import estrela from '../../assets/images/estrela.svg'
 import { CardButton } from '../Button'
 import CardTag from '../Tags'
-import { RestauranteApiProps } from '../../utilities/types'
 import { getTagsFromData } from '../../utilities/helper'
 
 const Card = (props: RestauranteApiProps) => (

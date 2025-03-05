@@ -1,7 +1,6 @@
 import StyledMenuItem from './style'
 
 import { StyledMenuItemButton } from '../Button/style'
-import { MenuItemProps } from '../../utilities/types'
 import ModalItem from '../ModalItem'
 import { useState } from 'react'
 

@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { MenuItemProps } from '../../utilities/types'
+type SidebarContent = 'cart' | 'adressform' | 'cardform' | 'ordermsg'
 
 type CartState = {
   show: boolean
+  sidebarContent: SidebarContent
   itens: MenuItemProps[]
 }
 
 const initialState: CartState = {
   show: false,
+  sidebarContent: 'cart',
   itens: []
 }
 
@@ -16,8 +18,11 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    toggleCartDisplay: (state) => {
+    toggleSibeBar: (state) => {
       state.show = !state.show
+    },
+    changeContent: (state, action: PayloadAction<SidebarContent>) => {
+      state.sidebarContent = action.payload
     },
     addIten: (state, action: PayloadAction<MenuItemProps>) => {
       if (state.itens.find((_item) => _item.id === action.payload.id)) {
@@ -28,10 +33,14 @@ const cartSlice = createSlice({
     },
     removeItem: (state, action: PayloadAction<number>) => {
       state.itens = state.itens.filter((item) => item.id !== action.payload)
+    },
+    clearCart: (state) => {
+      state.itens = []
     }
   }
 })
 
-export const { toggleCartDisplay, addIten, removeItem } = cartSlice.actions
+export const { toggleSibeBar, addIten, removeItem, changeContent, clearCart } =
+  cartSlice.actions
 
 export default cartSlice.reducer

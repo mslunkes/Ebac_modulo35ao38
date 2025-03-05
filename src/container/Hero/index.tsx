@@ -1,4 +1,3 @@
-import { RestauranteApiProps } from '../../utilities/types'
 import StyledHero from './style'
 
 const Hero = (props: RestauranteApiProps) => (

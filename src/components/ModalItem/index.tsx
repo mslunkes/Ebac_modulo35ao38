@@ -3,10 +3,9 @@ import { StyledMenuItemButton } from '../Button/style'
 import StyledModal, { StyledModalContainer } from './style'
 import btn_close from '../../assets/images/btn_close.png'
 
-import { MenuItemModalProps } from '../../utilities/types'
-import { formataPreco } from '../../utilities/helper'
 import { useDispatch } from 'react-redux'
 import { addIten } from '../../store/reducers/cart'
+import { formataPreco } from '../../utilities/helper'
 
 const ModalItem = (props: MenuItemModalProps) => {
   const dispatch = useDispatch()

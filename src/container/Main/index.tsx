@@ -1,29 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useGetRestaurantesQuery } from '../../services/api'
 
 import StyledMain from './style'
 
 import Card from '../../components/Card'
-import { RestauranteApiProps } from '../../utilities/types'
+import Loader from '../../components/Loader'
 
 const Main = () => {
-  const [restaurantes, setRestaurantes] = useState<RestauranteApiProps[]>([])
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res)
-        setRestaurantes(res)
-      })
-  }, [])
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
 
   return (
-    <>
-      <StyledMain>
-        {restaurantes.map((card) => (
-          <Card key={card.id} {...card} />
-        ))}
-      </StyledMain>
-    </>
+    <StyledMain>
+      {isLoading && <Loader />}
+      {restaurantes &&
+        restaurantes.map((card) => <Card key={card.id} {...card} />)}
+    </StyledMain>
   )
 }
 
