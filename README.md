@@ -8,7 +8,7 @@
 
 
 ## Efood: Screenshots
-Screenshots
+
 <img src="/src/assets/images/readme/image1.png" width="200">&emsp;<img src="/src/assets/images/readme/image2.png" width="200">&emsp;<img src="/src/assets/images/readme/image3.png" width="200">
 
 
