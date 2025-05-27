@@ -1,4 +1,7 @@
 # Efood - escolha seu restaurante favorito
+
+- Aplicativo com diferentes restaurantes, é possivel adiconar pratos desejadados ao carrinho, realizar uma simulação de pagamento
+
 ## Tecnologias utilizadas
 
 - React
