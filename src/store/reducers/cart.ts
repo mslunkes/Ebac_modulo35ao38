@@ -1,40 +1,48 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import Food from '../../models/Food'
+
+type SidebarContent = 'cart' | 'adressform' | 'cardform' | 'ordermsg'
 
 type CartState = {
-  items: Food[]
-  isOpen: boolean
+  show: boolean
+  sidebarContent: SidebarContent
+  itens: MenuItemProps[]
 }
 
 const initialState: CartState = {
-  items: [],
-  isOpen: false
+  show: false,
+  sidebarContent: 'cart',
+  itens: []
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Food>) => {
-      const food = state.items.find((item) => item.id === action.payload.id)
-
-      if (!food) {
-        state.items.push(action.payload)
+    toggleSibeBar: (state) => {
+      state.show = !state.show
+    },
+    changeContent: (state, action: PayloadAction<SidebarContent>) => {
+      state.sidebarContent = action.payload
+    },
+    addIten: (state, action: PayloadAction<MenuItemProps>) => {
+      if (state.itens.find((_item) => _item.id === action.payload.id)) {
+        alert('Item já adicionado...')
       } else {
-        alert('Produto já adicionado ao carrinho')
+        state.itens.push(action.payload)
       }
     },
-    remove: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload)
+    removeItem: (state, action: PayloadAction<number>) => {
+      state.itens = state.itens.filter((item) => item.id !== action.payload)
     },
-    open: (state) => {
-      state.isOpen = true
-    },
-    close: (state) => {
-      state.isOpen = false
+    clearCart: (state) => {
+      state.itens = []
     }
   }
 })
 
-export const { add, close, open, remove } = cartSlice.actions
+export const { toggleSibeBar, addIten, removeItem, changeContent, clearCart } =
+  cartSlice.actions
+
 export default cartSlice.reducer
+
+

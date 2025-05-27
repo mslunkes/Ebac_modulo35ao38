@@ -1,30 +1,30 @@
 import { Provider } from 'react-redux'
+import { cartStore } from './store'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React from 'react'
-import { GlobalCss } from './styles'
+
 import Home from './pages/Home'
-import Footer from './components/Footer/indes'
-import Perfil from './pages/Perfil'
-import Restaurante from './pages/Perfil'
-import { store } from './store'
+import Restaurants from './pages/Restaurants'
+
+import Footer from './container/Footer'
+
+import EstiloGlobal from './styles'
+import SideBar from './container/SideBar'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/perfil" element={<Perfil />} />
-    <Route path="/restaurante/:id" element={<Restaurante />} />
+    <Route path="/restaurantes/:id" element={<Restaurants />} />
   </Routes>
 )
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={cartStore}>
       <BrowserRouter>
-        <GlobalCss />
-        <div>
-          <Rotas />
-        </div>
+        <EstiloGlobal />
+        <Rotas />
+        <SideBar />
         <Footer />
       </BrowserRouter>
     </Provider>
